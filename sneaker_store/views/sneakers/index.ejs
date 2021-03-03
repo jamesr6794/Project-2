@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+</head>
+<body>
+    <nav>
+        <a href="/store/new">Don't See Something You Like? Request HERE!!!</a>
+      </nav>
+      <h1>Jimmy's Sneaker Site</h1>
+      <ul>
+        <% for (let i = 0; i < allProducts.length; i++) { %>
+        <li>
+            <a href="/store/<%= allSneakers[i].id %>"><%= allSneakers[i].img %></a><br><%= allSneakers[i].brand %><br><%= allSneakers[i].name %><br><%= allSneakers[i].color %><br><%= allSneakers[i].price %><br><%= allSneakers[i].quantity %>
+          <form action="/store/<%= allSneakers[i].id %>?_method=DELETE" method="POST">
+            <input type="submit" value="DELETE"/>
+          </form>
+          <!-- <button><a href="/store/<%= allSneakers[i].id %>/edit">Edit</a></button> -->
+          <button><a href="/store/<%= allSneakers[i].id %>/buy">Add to Cart</a></button>
+        </li>
+        <% } %>
+      </ul>
+</body>
+</html>
