@@ -76,7 +76,7 @@ store.put('/:id', (req, res) => {
 //buy
 store.get('/:id/buy', (req,res) => {
     Sneaker.findById(req.params.id, (error, boughtSneaker) => {
-        res.render('buy.ejs', {
+        res.render('sneakers/buy.ejs', {
             sneaker: boughtSneaker
         })
     })
