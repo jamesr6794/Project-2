@@ -86,14 +86,14 @@ store.put('/:id/buy', (req,res) => {
    
     
     Sneaker.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, boughtSneaker) => {
-        res.redirect('buy.ejs');
+        res.redirect('sneakers/buy.ejs');
     })
 })
 
 //show
 store.get('/:id', (req, res) => {
     Sneaker.findById(req.params.id, (error, foundSneaker) => {
-      res.render('show.ejs', {
+      res.render('sneakers/show.ejs', {
           sneaker: foundSneaker
         })
     })
