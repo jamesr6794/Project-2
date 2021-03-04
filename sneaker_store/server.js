@@ -1,6 +1,8 @@
 const express = require('express')
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
+// const Sneaker = require('../models/store.js')
+
 
 require('dotenv').config();
 const app = express()
@@ -25,6 +27,14 @@ app.use('/store', sneakersController)
 app.get('/', (req, res) => {
     res.redirect('/store')
   })
+
+//   app.get('/store', (req,res) => {
+//     Sneaker.find({}, (error, allSneakers) => {
+//         res.render('index.ejs', {
+//             store: allSneakers
+//         })
+//     })
+// })
 
 app.listen(PORT, () => {
     console.log('Listening on port', PORT)
