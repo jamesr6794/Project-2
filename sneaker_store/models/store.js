@@ -6,7 +6,7 @@ const sneakerSchema = new mongoose.Schema({
   name: { type: String, required: true },
   color: { type: String, required: true },
   price: Number,
-  quantity: Number,
+  size: Number,
   addToCart: Boolean
 })
 

@@ -11,7 +11,7 @@ store.get('/store/seed', (req,res) => {
             name: { type: String, required: true },
             color: { type: String, required: true },
             price: Number,
-            quantity: Number,
+            size: Number,
             addToCart: Boolean
           }, {
             img : String,
@@ -19,7 +19,7 @@ store.get('/store/seed', (req,res) => {
             name: { type: String, required: true },
             color: { type: String, required: true },
             price: Number,
-            quantity: Number,
+            size: Number,
             addToCart: Boolean
           }, {
             img : String,
@@ -27,7 +27,7 @@ store.get('/store/seed', (req,res) => {
             name: { type: String, required: true },
             color: { type: String, required: true },
             price: Number,
-            quantity: Number,
+            size: Number,
             addToCart: Boolean
           }, {
             img : String,
@@ -35,7 +35,7 @@ store.get('/store/seed', (req,res) => {
             name: { type: String, required: true },
             color: { type: String, required: true },
             price: Number,
-            quantity: Number,
+            size: Number,
             addToCart: Boolean
           },{
             img : String,
@@ -43,7 +43,7 @@ store.get('/store/seed', (req,res) => {
             name: { type: String, required: true },
             color: { type: String, required: true },
             price: Number,
-            quantity: Number,
+            size: Number,
             addToCart: Boolean
           }, {
             img : String,
@@ -51,7 +51,7 @@ store.get('/store/seed', (req,res) => {
             name: { type: String, required: true },
             color: { type: String, required: true },
             price: Number,
-            quantity: Number,
+            size: Number,
             addToCart: Boolean
           }, {
             img : String,
@@ -59,7 +59,7 @@ store.get('/store/seed', (req,res) => {
             name: { type: String, required: true },
             color: { type: String, required: true },
             price: Number,
-            quantity: Number,
+            size: Number,
             addToCart: Boolean
           }, {
             img : String,
@@ -67,7 +67,7 @@ store.get('/store/seed', (req,res) => {
             name: { type: String, required: true },
             color: { type: String, required: true },
             price: Number,
-            quantity: Number,
+            size: Number,
             addToCart: Boolean
           },{
             img : String,
@@ -75,7 +75,7 @@ store.get('/store/seed', (req,res) => {
             name: { type: String, required: true },
             color: { type: String, required: true },
             price: Number,
-            quantity: Number,
+            size: Number,
             addToCart: Boolean
           }, {
             img : String,
@@ -83,7 +83,7 @@ store.get('/store/seed', (req,res) => {
             name: { type: String, required: true },
             color: { type: String, required: true },
             price: Number,
-            quantity: Number,
+            size: Number,
             addToCart: Boolean
           }, {
             img : String,
@@ -91,7 +91,7 @@ store.get('/store/seed', (req,res) => {
             name: { type: String, required: true },
             color: { type: String, required: true },
             price: Number,
-            quantity: Number,
+            size: Number,
             addToCart: Boolean
           }, {
             img : String,
@@ -99,7 +99,7 @@ store.get('/store/seed', (req,res) => {
             name: { type: String, required: true },
             color: { type: String, required: true },
             price: Number,
-            quantity: Number,
+            size: Number,
             addToCart: Boolean
           },{
             img : String,
@@ -107,7 +107,7 @@ store.get('/store/seed', (req,res) => {
             name: { type: String, required: true },
             color: { type: String, required: true },
             price: Number,
-            quantity: Number,
+            size: Number,
             addToCart: Boolean
           }, {
             img : String,
@@ -115,7 +115,7 @@ store.get('/store/seed', (req,res) => {
             name: { type: String, required: true },
             color: { type: String, required: true },
             price: Number,
-            quantity: Number,
+            size: Number,
             addToCart: Boolean
           }, {
             img : String,
@@ -123,7 +123,7 @@ store.get('/store/seed', (req,res) => {
             name: { type: String, required: true },
             color: { type: String, required: true },
             price: Number,
-            quantity: Number,
+            size: Number,
             addToCart: Boolean
           }, {
             img : String,
@@ -131,7 +131,7 @@ store.get('/store/seed', (req,res) => {
             name: { type: String, required: true },
             color: { type: String, required: true },
             price: Number,
-            quantity: Number,
+            size: Number,
             addToCart: Boolean
           },
     ], (error, data) => {
@@ -140,16 +140,16 @@ store.get('/store/seed', (req,res) => {
 })
 
 //index
-store.get('/store', (req,res) => {
+store.get('/', (req,res) => {
     Sneaker.find({}, (error, allSneakers) => {
-        res.render('index.ejs', {
-            store: allSneakers
+        res.render('../views/sneakers/index.ejs', {
+            allSneakers
         })
     })
 })
 
 //show
-store.get('/store/:id', (req, res) => {
+store.get('/:id', (req, res) => {
     Sneaker.findById(req.params.id, (error, foundSneaker) => {
       res.render('show.ejs', {
           sneaker: foundSneaker
@@ -158,18 +158,18 @@ store.get('/store/:id', (req, res) => {
 })
 
 // request
-store.get('/store/new', (req, res) => {
+store.get('/new', (req, res) => {
     res.render('new.ejs')
   })
 
-store.post('/store', (req, res) => {
+store.post('/', (req, res) => {
 
     Sneaker.create(req.body, (error, createdSneaker) => {
         res.redirect('/store');
     });
 });
 
-store.put('/store/:id', (req, res) => {
+store.put('/:id', (req, res) => {
 
     Sneaker.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedSneaker) => {
         res.redirect('/store');
@@ -177,7 +177,7 @@ store.put('/store/:id', (req, res) => {
 });
 
 //buy
-store.get('/store/:id/buy', (req,res) => {
+store.get('/:id/buy', (req,res) => {
     Sneaker.findById(req.params.id, (error, boughtSneaker) => {
         res.render('buy.ejs', {
             sneaker: boughtSneaker
@@ -185,7 +185,7 @@ store.get('/store/:id/buy', (req,res) => {
     })
 })
 
-store.put('/store/:id/buy', (req,res) => {
+store.put('/:id/buy', (req,res) => {
    
     
     Sneaker.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, boughtSneaker) => {
