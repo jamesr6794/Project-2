@@ -1,6 +1,6 @@
 body {
     background-color: aliceblue;
-    align-items: center;
+    
 }
 
 nav {
@@ -10,6 +10,26 @@ nav {
 }
 
 img {
-    height: 300px;
-    width: 200px;
+    height: 200px;
+    width: 250px;
+}
+
+ul {
+    text-align: center;
+    display: flex;
+    padding: 5px;
+}
+li{
+    list-style: none;
+    margin: 5px;
+}
+
+:any-link{
+    color:aliceblue;
+    text-transform: none;
+    text-decoration: none;
+}
+
+button {
+    background-color: black;
 }
