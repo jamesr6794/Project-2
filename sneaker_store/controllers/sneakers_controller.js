@@ -153,22 +153,6 @@ store.get('/new', (req, res) => {
     res.render('sneakers/new.ejs')
   })
 
-store.post('/', (req, res) => {
-
-    Sneaker.create(req.body, (error, createdSneaker) => {
-        res.redirect('/store');
-    });
-});
-
-store.put('/:id', (req, res) => {
-
-    Sneaker.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedSneaker) => {
-        res.redirect('/store');
-    });
-});
-
-
-
 //buy
 store.get('/:id/buy', (req,res) => {
     Sneaker.findById(req.params.id, (error, boughtSneaker) => {
@@ -186,6 +170,7 @@ store.put('/:id/buy', (req,res) => {
     })
 })
 
+//delete
 store.delete('/:id', (req, res) => {
     Sneaker.findByIdAndRemove(req.params.id, (err, deletedSneaker) => {
       res.redirect('/store')
