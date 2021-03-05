@@ -9,6 +9,7 @@ nav {
     font-size: 20px;
     color: aliceblue;
     padding: 10px;
+    text-align: right;
 }
 
 h1 {
@@ -42,4 +43,9 @@ li{
 
 button {
     background-color: black;
+}
+
+p {
+    text-align: center;
+    font-size: 20px;
 }

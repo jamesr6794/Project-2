@@ -8,10 +8,12 @@
     <title>Checkout</title>
 </head>
 <body>
-    <h1>You Have Bought These Sneakers!</h1>
+    <h1>You Have Bought These Sneakers! <%= sneaker.name %></h1>
     <nav>
         <a href="/store">Not Done Shopping?</a>
       </nav>
+      <p>
       <img src='<%=sneaker.img%>'><br><%= sneaker.brand %><br><%= sneaker.name %><br><%= sneaker.color %><br><%= sneaker.price %><br><%= sneaker.size %>
+      </p>
 </body>
 </html>
