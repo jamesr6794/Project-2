@@ -118,7 +118,7 @@ store.get('/seed', (req,res) => {
             size: 9.5,
             addToCart: true
           }, {
-            img : '/images/chukkalow.jpg',
+            img : 'https://cdn.shoplightspeed.com/shops/603507/files/24343004/800x1024x2/vans-vans-chukka-low-shoes.jpg',
             brand: 'Vans',
             name: 'Chukka Low',
             color: 'Black, White',
@@ -185,6 +185,12 @@ store.put('/:id/buy', (req,res) => {
         res.redirect('sneakers/buy.ejs');
     })
 })
+
+store.delete('/:id', (req, res) => {
+    Sneaker.findByIdAndRemove(req.params.id, (err, deletedSneaker) => {
+      res.redirect('/store')
+    })
+  })
 
 //show
 store.get('/:id', (req, res) => {

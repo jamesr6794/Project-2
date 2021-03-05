@@ -17,10 +17,9 @@
         <li>
             <a href="/store/<%= allSneakers[i].id %>"><img src='<%=allSneakers[i].img%>'></a><br><%= allSneakers[i].brand %><br><%= allSneakers[i].name %><br><%= allSneakers[i].color %><br><%= allSneakers[i].price %><br><%= allSneakers[i].size %>
           <form action="/store/<%= allSneakers[i].id %>?_method=DELETE" method="POST">
-            <input type="submit" value="DELETE"/>
+            <input type="submit" value="Remove"/>
           </form>
-          <!-- <button><a href="/store/<%= allSneakers[i].id %>/edit">Edit</a></button> -->
-          <button><a href="/store/<%= allSneakers[i].id %>/buy">Add to Cart</a></button>
+          <button><a href="/store/<%= allSneakers[i].id %>/buy">Purchase</a></button>
         </li>
         <% } %>
       </ul>
