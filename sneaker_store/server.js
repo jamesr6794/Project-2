@@ -7,6 +7,7 @@ const app = express()
 const db = mongoose.connection
 const PORT = process.env.PORT
 const databaseName = 'store';
+const mongoURL = process.env.MONGODB_URI || `mongodb://localhost:27017/${databaseName}`
 
 
 app.use(methodOverride('_method'))
@@ -14,7 +15,9 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'));
 
 
-mongoose.connect(`mongodb://localhost:27017/${databaseName}`, { useNewUrlParser: true});
+
+mongoose.connect(mongoURL, { useNewUrlParser: true })
+// mongoose.connect(`mongodb://localhost:27017/${databaseName}`, { useNewUrlParser: true});
 mongoose.connection.once('open', () => {
     console.log('connected to mongo');
 });
@@ -29,3 +32,6 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
     console.log('Listening on port', PORT)
   })
+
+
+ 
