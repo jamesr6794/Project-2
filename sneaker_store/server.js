@@ -17,7 +17,6 @@ app.use(express.static('public'));
 
 
 mongoose.connect(mongoURL, { useNewUrlParser: true })
-// mongoose.connect(`mongodb://localhost:27017/${databaseName}`, { useNewUrlParser: true});
 mongoose.connection.once('open', () => {
     console.log('connected to mongo');
 });
