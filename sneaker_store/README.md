@@ -28,4 +28,4 @@
 </ul>
 
 ### Deployed Site
-<a href=https://Project-2>CRUD App</a>
+<a href=https://Project-2/index>CRUD App</a>
