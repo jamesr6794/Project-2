@@ -28,4 +28,4 @@
 </ul>
 
 ### Deployed Site
-<a href=https://Project-2/sneaker_store/views/sneakers/index>CRUD App</a>
+<a href=https://github.com/jamesr6794/Project-2.git>CRUD App</a>
