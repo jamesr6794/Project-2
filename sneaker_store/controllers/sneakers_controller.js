@@ -177,14 +177,6 @@ store.get('/:id/buy', (req,res) => {
     })
 })
 
-// store.put('/:id/buy', (req,res) => {
-   
-    
-//     Sneaker.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, boughtSneaker) => {
-//         res.redirect('sneakers/buy.ejs');
-//     })
-// })
-
 //delete
 store.delete('/:id', (req, res) => {
     Sneaker.findByIdAndRemove(req.params.id, (error, deletedSneaker) => {
