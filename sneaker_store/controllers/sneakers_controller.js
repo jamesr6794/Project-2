@@ -153,6 +153,21 @@ store.get('/new', (req, res) => {
     res.render('sneakers/new.ejs')
   })
 
+// add own shoe
+store.post('/store', (req, res) => {
+
+    Sneaker.create(req.body, (error, createdSneaker) => {
+        res.redirect('/store');
+    });
+});
+
+store.put('/store/:id', (req, res) => {
+
+    Sneaker.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedSneaker) => {
+        res.redirect('/store');
+    });
+});
+
 //buy
 store.get('/:id/buy', (req,res) => {
     Sneaker.findById(req.params.id, (error, boughtSneaker) => {
@@ -162,17 +177,17 @@ store.get('/:id/buy', (req,res) => {
     })
 })
 
-store.put('/:id/buy', (req,res) => {
+// store.put('/:id/buy', (req,res) => {
    
     
-    Sneaker.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, boughtSneaker) => {
-        res.redirect('sneakers/buy.ejs');
-    })
-})
+//     Sneaker.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, boughtSneaker) => {
+//         res.redirect('sneakers/buy.ejs');
+//     })
+// })
 
 //delete
 store.delete('/:id', (req, res) => {
-    Sneaker.findByIdAndRemove(req.params.id, (err, deletedSneaker) => {
+    Sneaker.findByIdAndRemove(req.params.id, (error, deletedSneaker) => {
       res.redirect('/store')
     })
   })
@@ -185,6 +200,8 @@ store.get('/:id', (req, res) => {
         })
     })
 })
+
+
 
 
 
