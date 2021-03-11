@@ -16,3 +16,15 @@
 <li>Users can also request a shoe and view a sneaker on its own rendered page with a description</li>
 </ul>
 <br/>
+
+### Tools and Languages Used
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>Express</li>
+<li>Mongoose</li>
+<li>Ejs</li>
+<li>.ENV</li>
+<li>Javascript</li>
+<li>VS Code</li>
+<ul>
